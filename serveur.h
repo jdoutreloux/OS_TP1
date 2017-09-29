@@ -14,6 +14,6 @@ struct data1 msgdata;
 
 struct send{
 
-int idtype;
+long type;
 char texte[1000]
 }
