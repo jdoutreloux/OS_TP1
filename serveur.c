@@ -13,8 +13,9 @@ int main( int argc, const char* argv[] )
 	//gerer pour le while true
 	msgrcv(msgId,  msg,sizeof(struct...),1,0666);
 	d = msg->data;
-	struct receive* answer; //creer message reponse
+	struct send* answer; //creer message reponse
 	answer->type = data->pid;
+	answer->texte =  "";//aller chercher txt dans fichier
 	//answer->  2e structure message?
 	int i = msgsnd(msgId, answer, sizeof(answer), 0666);
 	
