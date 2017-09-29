@@ -6,9 +6,14 @@ char filename[100];
 
 }
 
-struct message{
+struct receive{
 
 long mtype;
-struct data msgdata;
+struct data1 msgdata;
+}
 
+struct send{
+
+int idtype;
+char texte[1000]
 }
