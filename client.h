@@ -1,4 +1,4 @@
-truct data{
+struct data{
 
 int pid;
 char filename[100];
