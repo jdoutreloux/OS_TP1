@@ -15,3 +15,5 @@ et puis un msgrcv.
 
 Attention : msgtype = 1 si on envoie au serveur sinon = id clients 
 Data est une structure avec le pid du client et un char [] filename
+
+un fichier c termine toujours par une ligne vide pour aider à la compilation.
