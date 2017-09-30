@@ -14,3 +14,5 @@ int main( int argc, const char* argv[] )
 
 	msgrcv(msgId,  msg,sizeof(...),1,0666);
 }
+
+
