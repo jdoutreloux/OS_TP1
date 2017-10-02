@@ -6,7 +6,6 @@
 
 int main( int argc, const char* argv[] )
 {
-	printf("blabla");
 	int msgId;
 	msgId = msgget(10,0666);
 	struct receive *msg = (struct receive*)malloc(sizeof(struct receive));
@@ -16,7 +15,7 @@ int main( int argc, const char* argv[] )
 	}
 	struct data d; //creer la structure pour le message client
 	//gerer pour le while true
-	msgrcv(msgId, msg,sizeof(msg),1,0666);
+	msgrcv(msgId, msg,sizeof(msg),1,0);
 	d = msg->msgdata;
 	struct send* answer = (struct send*)malloc(sizeof(struct send)); //creer message reponse
 	if(answer==NULL){
