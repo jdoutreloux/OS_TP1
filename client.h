@@ -1,3 +1,6 @@
+#ifndef CLIENT
+#define CLIENT
+
 struct data{
 
 int pid;
@@ -11,4 +14,6 @@ struct receive{
 long mtype;
 struct data msgdata;
 };
+
+#endif
 
