@@ -18,7 +18,15 @@ int main( int argc, const char* argv[] )
 
         //const void *filename = argv[0];
 	if (rcv->msgdata != NULL) {
-		int i = msgsnd(msgId, rcv,sizeof(filename), 0666);
+		int i = msgsnd(msgId, rcv,sizeof(dc->filename), 0666);
+		if(i==0)
+		{
+			//success
+		}
+		else
+		{
+			
+		}
 	}
 	
 	struct send* snd = (struct send*) malloc(sizeof(struct send));
