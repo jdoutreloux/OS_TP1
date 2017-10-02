@@ -20,8 +20,10 @@ int main( int argc, const char* argv[] )
 	if (rcv->msgdata != NULL) {
 		int i = msgsnd(msgId, rcv,sizeof(filename), 0666);
 	}
+	
+	struct send* snd = (struct send*) malloc(sizeof(struct send));
 
-	msgrcv(msgId,  msg,sizeof(...),1,0666);
+	msgrcv(msgId,  snd,sizeof(snd),1,0666);
 }
 
 
