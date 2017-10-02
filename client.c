@@ -2,6 +2,8 @@
 #include <sys/ipc.h>
 #include <sys/msg.h>
 #include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
 #include "serveur.h"
 
 int main( int argc, const char* argv[] )
@@ -10,7 +12,7 @@ int main( int argc, const char* argv[] )
         msgId = msgget(10,0666);
 	
 	struct data * dc= (struct data*) malloc(sizeof(struct data));
-	//dc->filename = argv[0];
+	strcpy(dc->filename, argv[0]);
 
 	struct receive* rcv = (struct receive*) malloc(sizeof(struct receive));
 	rcv->msgdata = *dc;
@@ -22,10 +24,11 @@ int main( int argc, const char* argv[] )
 		if(i==0)
 		{
 			//success
+			printf("blabl1");
 		}
 		else
 		{
-			
+			printf("blabla");
 		}
 	}
 	
