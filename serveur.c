@@ -39,8 +39,16 @@ int main( int argc, const char* argv[] )
 			}
 		}
 		fclose(f);
+		if(i==0)
+		{
+			//successful
+		}
+		else
+		{
+			//error
+		}
 	}
-	//traiter i??
+	
 	
 }
 
