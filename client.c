@@ -1,4 +1,5 @@
 #include <sys/types.h>
+#include <unistd.h>
 #include <sys/ipc.h>
 #include <sys/msg.h>
 #include <stdlib.h>
@@ -19,7 +20,8 @@ int main( int argc, const char* argv[] )
 	rcv->mtype =1;
 
         //const void *filename = argv[0];
-	if (rcv->msgdata.filename != NULL) { //msgdata.pid n'est jamais initialisé!!
+	if (rcv->msgdata.filename != NULL) {
+		msgdata.pid = getpid();
 		int i = msgsnd(msgId, rcv,sizeof(argv), 0666);
 		if(i==0)
 		{
