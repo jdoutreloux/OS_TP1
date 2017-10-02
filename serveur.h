@@ -4,7 +4,7 @@ int pid;
 char filename[100];
 
 
-};
+}
 
 struct receive{
 
