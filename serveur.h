@@ -1,3 +1,6 @@
+#ifndef SOME_HEADER_GUARD_WITH_UNIQUE_NAME
+#define SOME_HEADER_GUARD_WITH_UNIQUE_NAME
+
 typedef struct data data;
 struct data{
 
@@ -20,4 +23,6 @@ struct send{
 long type;
 char texte[1000]
 };
+#endif
+
 
