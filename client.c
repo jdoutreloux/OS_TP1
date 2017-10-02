@@ -9,8 +9,11 @@ int main( int argc, const char* argv[] )
         int msgId;
         msgId = msgget(10,0666);
 	
+	struct data dc;
+	dc.filename = argv[0];
+
 	struct receive* rcv;
-	rcv->msgdata =argv[0];
+	rcv->msgdata =dc;
 	rcv->mtype =1;
 
         //const void *filename = argv[0];
