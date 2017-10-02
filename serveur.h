@@ -2,7 +2,7 @@
 #define SOME_HEADER_GUARD_WITH_UNIQUE_NAME
 
 
-typedef struct data{
+typedef struct data {
 
 int pid;
 char filename[100];
@@ -10,13 +10,13 @@ char filename[100];
 
 }data;
 
-typedef struct receive{
+typedef struct receive {
 
 long mtype;
 struct data msgdata;
 }receive;
 
-typedef struct send{
+typedef struct send {
 
 long type;
 char texte[1000]
