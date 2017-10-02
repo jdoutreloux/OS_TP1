@@ -1,19 +1,19 @@
 #ifndef CLIENT
 #define CLIENT
 
-struct data{
+typedef struct data{
 
 int pid;
 char filename[100];
 
 
-};
+} data;
 
-struct receive{
+typedef struct receive{
 
 long mtype;
 struct data msgdata;
-};
+} receive;
 
 #endif
 
