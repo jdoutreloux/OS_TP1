@@ -1,6 +1,7 @@
 #include <sys/types.h>
 #include <sys/ipc.h>
 #include <sys/msg.h>
+#include <stdio.h>
 #include "serveur.h"
 
 int main( int argc, const char* argv[] )
