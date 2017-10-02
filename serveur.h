@@ -1,5 +1,4 @@
-typedef struct data data;
-struct data{
+typedef struct data{
 
 int pid;
 char filename[100];
@@ -7,15 +6,13 @@ char filename[100];
 
 };
 
-typedef struct receive receive
-struct receive{
+typedef struct receive{
 
 long mtype;
 struct data msgdata;
 };
 
-typedef struct send send
-struct send{
+typedef struct send{
 
 long type;
 char texte[1000]
