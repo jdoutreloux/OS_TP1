@@ -21,7 +21,7 @@ int main( int argc, const char* argv[] )
 
         //const void *filename = argv[0];
 	if (rcv->msgdata.filename != NULL) {
-		msgdata.pid = getpid();
+		rcv->msgdata.pid = getpid();
 		int i = msgsnd(msgId, rcv,sizeof(argv), 0666);
 		if(i==0)
 		{
