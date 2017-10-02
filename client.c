@@ -13,7 +13,7 @@ int main( int argc, const char* argv[] )
 	dc->filename = argv[0];
 
 	struct receive* rcv = (struct receive*) malloc(sizeof(struct receive));
-	rcv->msgdata =dc;
+	rcv->msgdata = &dc;
 	rcv->mtype =1;
 
         //const void *filename = argv[0];
