@@ -10,7 +10,7 @@ int main( int argc, const char* argv[] )
         msgId = msgget(10,0666);
 	
 	struct data * dc= (struct data*) malloc(sizeof(struct data));
-	dc->filename = argv[0];
+	//dc->filename = argv[0];
 
 	struct receive* rcv = (struct receive*) malloc(sizeof(struct receive));
 	rcv->msgdata = *dc;
@@ -18,7 +18,7 @@ int main( int argc, const char* argv[] )
 
         //const void *filename = argv[0];
 	if (rcv->msgdata != NULL) {
-		int i = msgsnd(msgId, rcv,sizeof(dc->filename), 0666);
+		int i = msgsnd(msgId, rcv,sizeof(argv[]), 0666);
 		if(i==0)
 		{
 			//success
