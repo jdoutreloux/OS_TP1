@@ -6,6 +6,7 @@
 
 int main( int argc, const char* argv[] )
 {
+	printf("blabla");
 	int msgId;
 	msgId = msgget(10,0666);
 	struct receive *msg = (struct receive*)malloc(sizeof(struct receive));
