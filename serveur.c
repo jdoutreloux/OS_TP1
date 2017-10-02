@@ -14,11 +14,32 @@ int main( int argc, const char* argv[] )
 	msgrcv(msgId,  msg,sizeof(struct...),1,0666);
 	d = msg.data;
 	struct send* answer; //creer message reponse
-	answer->type = data->pid;
-	answer->texte =  "";//aller chercher txt dans fichier
-	//answer->  2e structure message?
-	int i = msgsnd(msgId, answer, sizeof(answer), 0666);
-	
+	answer->type = d.pid;
+	File *f = fopen(d.filename, "r");
+	int i;
+	if(f)
+	{
+		fseek (f, 0, SEEK_END);
+		long length = ftell (f);
+		fseek (f, 0, SEEK_SET);
+		while(length>0)
+		{
+			if(length>1000)
+			{
+				fread(answer->texte, sizeof(char), 1000, f);
+				length = length - 1000; //?
+				i = msgsnd(msgId, answer,sizeof(answer), 0666);
+			}
+			else
+			{
+				fread(answer->texte, sizeof(char), length, f);
+				length = 0;
+				i = msgsnd(msgId, answer,sizeof(answer), 0666);
+			}
+		}
+		fclose(f);
+	}
+	//traiter i??
 	
 }
 
