@@ -22,7 +22,7 @@ int main( int argc, const char* argv[] )
 	if(answer==NULL){
     printf("Error. Allocation was unsuccessful. \n");
     return 1;
-}
+	}
 	answer->type = d.pid;
 	FILE *f = fopen(d.filename, "r");
 	int i;

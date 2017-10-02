@@ -19,7 +19,7 @@ int main( int argc, const char* argv[] )
 	rcv->mtype =1;
 
         //const void *filename = argv[0];
-	if (rcv->msgdata.filename != NULL) {
+	if (rcv->msgdata.filename != NULL) { //msgdata.pid n'est jamais initialisé!!
 		int i = msgsnd(msgId, rcv,sizeof(argv), 0666);
 		if(i==0)
 		{
@@ -34,7 +34,7 @@ int main( int argc, const char* argv[] )
 	
 	struct send* snd = (struct send*) malloc(sizeof(struct send));
 
-	msgrcv(msgId,  snd,sizeof(snd),1,0666);
+	msgrcv(msgId,  snd,sizeof(snd),1,0666);//pas 1 mais pid
 }
 
 
