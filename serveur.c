@@ -9,11 +9,19 @@ int main( int argc, const char* argv[] )
 	int msgId;
 	msgId = msgget(10,0666);
 	struct receive *msg = (struct receive*)malloc(sizeof(struct receive));
+	if(msg==NULL){
+		printf("Error. Allocation was unsuccessful. \n");
+		return 1;
+	}
 	struct data d; //creer la structure pour le message client
 	//gerer pour le while true
 	msgrcv(msgId, msg,sizeof(msg),1,0666);
 	d = msg->msgdata;
 	struct send* answer = (struct send*)malloc(sizeof(struct send)); //creer message reponse
+	if(answer==NULL){
+    printf("Error. Allocation was unsuccessful. \n");
+    return 1;
+}
 	answer->type = d.pid;
 	FILE *f = fopen(d.filename, "r");
 	int i;
