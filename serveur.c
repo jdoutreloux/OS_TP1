@@ -2,18 +2,18 @@
 #include <sys/msg.h>
 #include <stdio.h>
 #include "serveur.h"
+#include <stdlib.h>
 
 int main( int argc, const char* argv[] )
 {
 	int msgId;
 	msgId = msgget(10,0666);
-	
-	struct receive *msg; //creer variable pour stocker le message
+	struct receive *msg = (struct receive*)malloc(sizeof(struct receive));
 	struct data d; //creer la structure pour le message client
 	//gerer pour le while true
 	msgrcv(msgId, msg,sizeof(msg),1,0666);
 	d = msg->msgdata;
-	struct send* answer; //creer message reponse
+	struct send* answer = (struct send*)malloc(sizeof(struct send)); //creer message reponse
 	answer->type = d.pid;
 	FILE *f = fopen(d.filename, "r");
 	int i;
