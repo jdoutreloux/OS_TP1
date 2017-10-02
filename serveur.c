@@ -1,5 +1,6 @@
 #include <sys/types.h>
 #include <sys/msg.h>
+#include <sys/ipc.h>
 #include <stdio.h>
 #include "serveur.h"
 #include <stdlib.h>
