@@ -36,7 +36,7 @@ int main( int argc, const char* argv[] )
 	
 	struct send* snd = (struct send*) malloc(sizeof(struct send));
 
-	msgrcv(msgId,  snd,sizeof(snd),1,0666);//pas 1 mais pid
+	msgrcv(msgId,  snd,sizeof(snd),getpid(),0666);
 }
 
 
