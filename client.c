@@ -9,7 +9,7 @@ int main( int argc, const char* argv[] )
         int msgId;
         msgId = msgget(10,0666);
 	
-	struct data dc = (struct data*) malloc(sizeof(struct data));
+	struct data * dc= (struct data*) malloc(sizeof(struct data));
 	dc.filename = argv[0];
 
 	struct receive* rcv = (struct receive*) malloc(sizeof(struct receive));
