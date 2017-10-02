@@ -13,7 +13,7 @@ int main( int argc, const char* argv[] )
 	struct data d; //creer la structure pour le message client
 	//gerer pour le while true
 	msgrcv(msgId,  msg,sizeof(struct...),1,0666);
-	d = msg.data;
+	d = msg.msgdata;
 	struct send* answer; //creer message reponse
 	answer->type = d.pid;
 	File *f = fopen(d.filename, "r");
