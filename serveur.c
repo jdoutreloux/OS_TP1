@@ -16,7 +16,7 @@ int main( int argc, const char* argv[] )
 	d = msg.msgdata;
 	struct send* answer; //creer message reponse
 	answer->type = d.pid;
-	File *f = fopen(d.filename, "r");
+	FILE *f = fopen(d.filename, "r");
 	int i;
 	if(f)
 	{
