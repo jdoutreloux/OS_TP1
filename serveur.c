@@ -15,9 +15,31 @@ int main( int argc, const char* argv[] )
 	d = msg.data;
 	struct send* answer; //creer message reponse
 	answer->type = d.pid;
-	answer->texte =  "";//aller chercher txt dans fichier
-	int i = msgsnd(msgId, answer, sizeof(answer), 0666);
-	
+	File *f = fopen(d.filename, "r");
+	int i;
+	if(f)
+	{
+		fseek (f, 0, SEEK_END);
+		long length = ftell (f);
+		fseek (f, 0, SEEK_SET);
+		while(length>0)
+		{
+			if(length>1000)
+			{
+				fread(answer->texte, sizeof(char), 1000, f);
+				length = length - 1000; //?
+				i = msgsnd(msgId, answer,sizeof(answer), 0666);
+			}
+			else
+			{
+				fread(answer->texte, sizeof(char), length, f);
+				length = 0;
+				i = msgsnd(msgId, answer,sizeof(answer), 0666);
+			}
+		}
+		fclose(f);
+	}
+	//traiter i??
 	
 }
 
