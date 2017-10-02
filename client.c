@@ -17,7 +17,7 @@ int main( int argc, const char* argv[] )
 	rcv->mtype =1;
 
         //const void *filename = argv[0];
-	if (rcv->msgdata != NULL) {
+	if (rcv->msgdata.filename != NULL) {
 		int i = msgsnd(msgId, rcv,sizeof(dc->filename), 0666);
 		if(i==0)
 		{
