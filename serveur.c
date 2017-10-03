@@ -30,8 +30,10 @@ int main( int argc, const char* argv[] )
 	printf("hello2\n");
 	FILE *f = fopen(d.filename, "r");
 	printf("hello3\n");
-	if (f == NULL){printf("hello bug\n");}
-	else {printf("hello no bug\n");}
+	if (f == NULL){
+		printf("hello f NULL\n");
+		return 1;}
+	else {printf("hello F non NULL\n");}
 	int i;
 	if(f)
 	{
