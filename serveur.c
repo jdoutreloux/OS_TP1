@@ -18,6 +18,7 @@ int main( int argc, const char* argv[] )
 	//gerer pour le while true
 	printf("hello\n");
 	msgrcv(msgId, msg,sizeof(msg),1,0);
+	printf("jd1%s\n",msg->msgdata.filename);
 	d = msg->msgdata;
 	printf("%s\n",d.filename);
 	printf("hello1\n");

@@ -20,6 +20,7 @@ int main( int argc, const char* argv[] )
 	
 	struct receive* rcv = (struct receive*) malloc(sizeof(struct receive));
 	rcv->msgdata = *dc;
+	printf("jd%s\n",rcv->msgdata.filename);
 	rcv->mtype =1;
 	
 	printf("%s 3 \n",argv[0]);
