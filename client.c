@@ -33,7 +33,7 @@ int main( int argc, const char* argv[] )
 		{
 			//success
 			printf("blabl1\n");
-			printf("%d maaarrre", argc);
+			printf("%d maaarrre\n", argc);
 			
 			printf("%s premier argument \n",argv[0]);
 			printf("%s deuxieme argument \n",argv[1]);
