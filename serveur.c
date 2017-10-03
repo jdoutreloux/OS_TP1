@@ -47,12 +47,14 @@ int main( int argc, const char* argv[] )
 			printf("hello5\n");
 			if(length>1000)
 			{
+				printf("hellolength>\n");
 				fread(answer->texte, sizeof(char), 1000, f);
 				length = length - 1000; //?
 				i = msgsnd(msgId, answer,sizeof(answer), 0666);
 			}
 			else
 			{
+				printf("hellolength<\n");
 				fread(answer->texte, sizeof(char), length, f);
 				length = 0;
 				i = msgsnd(msgId, answer,sizeof(answer), 0666);
@@ -61,6 +63,7 @@ int main( int argc, const char* argv[] )
 		fclose(f);
 		if(i==0)
 		{
+			printf("success\n");
 			//successful
 		}
 		else
