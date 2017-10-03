@@ -19,6 +19,7 @@ int main( int argc, const char* argv[] )
 	printf("hello\n");
 	msgrcv(msgId, msg,sizeof(msg),1,0);
 	d = msg->msgdata;
+	printf("%s\n",d.filename);
 	printf("hello1\n");
 
 	struct send* answer = (struct send*)malloc(sizeof(struct send)); //creer message reponse
