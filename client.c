@@ -16,6 +16,7 @@ int main( int argc, const char* argv[] )
 	struct data * dc= (struct data*) malloc(sizeof(struct data));
 	strcpy(dc->filename, argv[1]);
 	printf("%s 2 \n",argv[0]);
+	printf("%s", dc->filename);
 	
 	struct receive* rcv = (struct receive*) malloc(sizeof(struct receive));
 	rcv->msgdata = *dc;
