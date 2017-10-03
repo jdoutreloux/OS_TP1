@@ -27,8 +27,9 @@ int main( int argc, const char* argv[] )
 		{
 			//success
 			printf("blabl1\n");
+			printf("%d maaarrre", argc);
+			
 			printf("%s",argv[0]);
-			printf("%s",argv[1]);
 		}
 		else
 		{
