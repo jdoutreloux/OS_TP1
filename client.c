@@ -26,11 +26,11 @@ int main( int argc, const char* argv[] )
 		if(i==0)
 		{
 			//success
-			printf("blabl1");
+			printf("blabl1\n");
 		}
 		else
 		{
-			printf("blabla");
+			printf("blabla\n");
 		}
 	}
 	
