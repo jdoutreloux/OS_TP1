@@ -8,7 +8,7 @@
 int main( int argc, const char* argv[] )
 {
 	int msgId;
-	msgId = msgget(10,0666);
+	msgId = msgget(10,IPC_CREAT|0666);
 	struct receive *msg = (struct receive*)malloc(sizeof(struct receive));
 	if(msg==NULL){
 		printf("Error. Allocation was unsuccessful. \n");
