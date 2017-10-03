@@ -15,7 +15,7 @@ int main( int argc, const char* argv[] )
 	
 	struct data * dc= (struct data*) malloc(sizeof(struct data));
 	strcpy(dc->filename, argv[1]);
-	printf("%s 2 \n",argv[0]);
+	printf("%s 2 %s\n",argv[0], dc->filename);
 	
 	struct receive* rcv = (struct receive*) malloc(sizeof(struct receive));
 	rcv->msgdata = *dc;
@@ -46,9 +46,15 @@ int main( int argc, const char* argv[] )
 	struct send* snd = (struct send*) malloc(sizeof(struct send));
 
 	msgrcv(msgId,  snd,sizeof(snd),getpid(),0666);
-	
+	FILE *f = fopen("sortie", "w");
+	if (f == NULL){
+		printf(" f NULL\n");
+		return 1;}
+	else {printf(" F non NULL\n");}
+	int charac;
 	for (int i=0; i<1000; i++){
-	printf("%c\n",snd->texte[i]);
+	charac=  fputc( snd->texte[i], f );
+	printf("%i",charac);
 	}
 }
 
