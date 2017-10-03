@@ -16,23 +16,30 @@ int main( int argc, const char* argv[] )
 	}
 	struct data d; //creer la structure pour le message client
 	//gerer pour le while true
+	printf("hello\n");
 	msgrcv(msgId, msg,sizeof(msg),1,0);
 	d = msg->msgdata;
+	printf("hello1\n");
+
 	struct send* answer = (struct send*)malloc(sizeof(struct send)); //creer message reponse
 	if(answer==NULL){
     printf("Error. Allocation was unsuccessful. \n");
     return 1;
 	}
 	answer->type = d.pid;
+	printf("hello2\n");
 	FILE *f = fopen(d.filename, "r");
+	printf("hello3\n");
 	int i;
 	if(f)
 	{
+		printf("hello4\n");
 		fseek (f, 0, SEEK_END);
 		long length = ftell (f);
 		fseek (f, 0, SEEK_SET);
 		while(length>0)
 		{
+			printf("hello5\n");
 			if(length>1000)
 			{
 				fread(answer->texte, sizeof(char), 1000, f);
