@@ -44,18 +44,23 @@ int main( int argc, const char* argv[] )
 		fseek (f, 0, SEEK_SET);
 		while(length>0)
 		{
-			printf("hello5\n");
+			printf("hello5\n\n\n\n\n");
 			if(length>1000)
 			{
 				printf("hellolength>\n");
 				fread(answer->texte, sizeof(char), 1000, f);
 				length = length - 1000; //?
+				printf("LENGTH ICI %li",length);
+				for (int i=0; i < 1000; i++){//printf("%c",answer->texte[i]);
+					}
 				i = msgsnd(msgId, answer,sizeof(answer), 0666);
 			}
 			else
 			{
 				printf("hellolength<\n");
 				fread(answer->texte, sizeof(char), length, f);
+				for (int i=0; i < length; i++){//printf("%c",answer->texte[i]);
+					}
 				length = 0;
 				i = msgsnd(msgId, answer,sizeof(answer), 0666);
 			}

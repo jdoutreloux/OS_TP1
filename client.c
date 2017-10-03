@@ -46,6 +46,13 @@ int main( int argc, const char* argv[] )
 	struct send* snd = (struct send*) malloc(sizeof(struct send));
 
 	msgrcv(msgId,  snd,sizeof(snd),getpid(),0666);
+	printf("sizeof(snd) : %li", sizeof(snd));
+	printf("sizeof(receiver) : %li", sizeof(struct receive));
+	for (int i=0; i<1000; i++){
+	printf("%c", snd->texte[i]);
+	}
+	
+	/*
 	FILE *f = fopen("sortie", "w");
 	if (f == NULL){
 		printf(" f NULL\n");
@@ -54,8 +61,12 @@ int main( int argc, const char* argv[] )
 	int charac;
 	for (int i=0; i<1000; i++){
 	charac=  fputc( snd->texte[i], f );
-	printf("%i",charac);
+	printf("%c",(char)charac);
 	}
+	
+	fclose(f);
+	*/
+	
 }
 
 
