@@ -33,8 +33,6 @@ int main( int argc, const char* argv[] )
 		{
 			//success
 			printf("blabl1\n");
-			printf("%d maaarrre", argc);
-			
 			printf("%s premier argument \n",argv[0]);
 			printf("%s deuxieme argument \n",argv[1]);
 		}
@@ -47,6 +45,10 @@ int main( int argc, const char* argv[] )
 	struct send* snd = (struct send*) malloc(sizeof(struct send));
 
 	msgrcv(msgId,  snd,sizeof(snd),getpid(),0666);
+	
+	for (int i=0; i<1000; i++){
+	printf("%c\n",snd->texte[i]);
+	}
 }
 
 
