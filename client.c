@@ -14,7 +14,7 @@ int main( int argc, const char* argv[] )
         msgId = msgget(10,0666);
 	
 	struct data * dc= (struct data*) malloc(sizeof(struct data));
-	strcpy(dc->filename, argv[0]);
+	strcpy(dc->filename, argv[1]);
 	printf("%s 2 \n",argv[0]);
 	
 	struct receive* rcv = (struct receive*) malloc(sizeof(struct receive));
@@ -35,7 +35,8 @@ int main( int argc, const char* argv[] )
 			printf("blabl1\n");
 			printf("%d maaarrre", argc);
 			
-			printf("%s 7 \n",argv[0]);
+			printf("%s premier argument \n",argv[0]);
+			printf("%s deuxieme argument \n",argv[1]);
 		}
 		else
 		{
