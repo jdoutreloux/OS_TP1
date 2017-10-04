@@ -61,6 +61,7 @@ int main( int argc, const char* argv[] )
 		int charac;
 		for (int i=0; i<1000 && finish == 0; i++){
 			charac=  fputc( snd->texte[i], f );
+			printf("%c",(char)charac);
 			if(snd->texte[i]== EOF)
 			{
 				finish = 1;
