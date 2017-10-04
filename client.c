@@ -62,7 +62,7 @@ int main( int argc, const char* argv[] )
 			return 1;}
 		else {printf(" F non NULL\n");}
 		int charac;
-		for (int i=0; i<1000 && finish == 0; i++){
+		for (int i=0; i<1000 || finish == 0; i++){
 			charac=  fputc( snd->texte[i], f );
 			printf("%c",(char)charac);
 			if(snd->texte[i]== EOF)
