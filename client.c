@@ -27,19 +27,16 @@ int main( int argc, const char* argv[] )
 	if (rcv->msgdata.filename != NULL) {
 		rcv->msgdata.pid = getpid();
 		int i = msgsnd(msgId, rcv,sizeof(argv), 0666);
-		printf("%s 4 \n",argv[0]);
+		//printf("%s 4 \n",argv[0]);
 		
 		if(i==0)
 		{
 			//success
-			printf("blabl1\n");
-
-			printf("%s premier argument \n",argv[0]);
-			printf("%s deuxieme argument \n",argv[1]);
+			printf("i==0\n");
 		}
 		else
 		{
-			printf("blabla\n");
+			printf("i!=0\n");
 		}
 	}
 	
@@ -52,10 +49,10 @@ int main( int argc, const char* argv[] )
 	{
 		snd = (struct send*) malloc(sizeof(struct send));
 		count++;
-		printf("debut while");
+		printf("debut while\n");
 		msgrcv(msgId,  snd,sizeof(snd),getpid(),0666);
-		printf("sizeof(snd) : %li", sizeof(snd));
-		printf("sizeof(receiver) : %li", sizeof(struct receive));
+		printf("sizeof(snd) : %li\n", sizeof(snd));
+		printf("sizeof(receiver) : %li\n", sizeof(struct receive));
 		
 		
 		if (f == NULL){
@@ -70,10 +67,9 @@ int main( int argc, const char* argv[] )
 			{
 				finish = 1;
 			}
-			printf("%c",(char)charac);
 		}
-		printf("fin for");
-		printf("%d",count);
+		printf("fin for\n");
+		printf("%d\n",count);
 		
 	}
 	free(snd);
