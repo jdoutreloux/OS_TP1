@@ -46,11 +46,11 @@ int main( int argc, const char* argv[] )
 	
 	int finish = 0; //file finish, pas communication 0 pas fini, 1 fini
 	FILE *f = fopen("sortie", "w");
-	
+	struct send* snd;
 	int count = 0;
 	while(finish == 0)
 	{
-		struct send* snd = (struct send*) malloc(sizeof(struct send));
+		snd = (struct send*) malloc(sizeof(struct send));
 		count++;
 		printf("debut while");
 		msgrcv(msgId,  snd,sizeof(snd),getpid(),0666);
