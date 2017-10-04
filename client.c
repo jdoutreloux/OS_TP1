@@ -63,7 +63,7 @@ int main( int argc, const char* argv[] )
 			charac=  fputc( snd->texte[i], f );
 			if(snd->texte[i]== EOF)
 			{
-				finish == 1;
+				finish = 1;
 			}
 			printf("%c",(char)charac);
 		}
