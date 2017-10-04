@@ -74,9 +74,9 @@ int main( int argc, const char* argv[] )
 		}
 		printf("fin for");
 		printf("%d",count);
-		free(snd);
+		
 	}
-	
+	free(snd);
 	fclose(f);
 
 	
