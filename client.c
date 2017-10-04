@@ -43,18 +43,20 @@ int main( int argc, const char* argv[] )
 	
 	int finish = 0; //file finish, pas communication 0 pas fini, 1 fini
 	FILE *f = fopen("sortie", "w");
-	struct send* snd;
+	if(!f){
+    fprintf(stderr,"can't open\n");
+    return 1;
+  }
+	struct send* snd = (struct send*) malloc(sizeof(struct send));
 	int count = 0;
 	while(finish == 0)
 	{
-		snd = (struct send*) malloc(sizeof(struct send));
+		//snd = (struct send*) malloc(sizeof(struct send));
 		count++;
 		printf("debut while\n");
 		msgrcv(msgId,  snd,sizeof(snd),getpid(),0666);
 		printf("sizeof(snd) : %li\n", sizeof(snd));
 		printf("sizeof(receiver) : %li\n", sizeof(struct receive));
-		
-		
 		if (f == NULL){
 			printf(" f NULL\n");
 			return 1;}
@@ -65,11 +67,12 @@ int main( int argc, const char* argv[] )
 			printf("%c",(char)charac);
 			if(snd->texte[i]== EOF)
 			{
+				printf("finish, EOF \n");
 				finish = 1;
 			}
 		}
 		printf("fin for\n");
-		printf("%d\n",count);
+		printf("count = %d\n",count);
 		
 	}
 	free(snd);
