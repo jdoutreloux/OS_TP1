@@ -59,9 +59,9 @@ int main( int argc, const char* argv[] )
 			return 1;}
 		else {printf(" F non NULL\n");}
 		int charac;
-		for (int i=0; i<1000; i++){
+		for (int i=0; i<1000 && finish == 0; i++){
 			charac=  fputc( snd->texte[i], f );
-			if(texte[i]== EOF)
+			if(snd->texte[i]== EOF)
 			{
 				finish == 1;
 			}
