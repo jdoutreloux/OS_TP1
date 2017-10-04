@@ -72,7 +72,7 @@ int main( int argc, const char* argv[] )
 			printf("%c",(char)charac);
 		}
 		printf("fin for");
-		printf(count);
+		printf("%d",count);
 	}
 	
 	fclose(f);
