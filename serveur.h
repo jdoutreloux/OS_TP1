@@ -14,9 +14,8 @@ struct data msgdata;
 }receive;
 
 typedef struct send {
-
 long type;
-	char texte[1000];
+char texte[1000];
 }send;
 #endif
 

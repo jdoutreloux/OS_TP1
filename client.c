@@ -36,19 +36,20 @@ int main( int argc, const char* argv[] )
 	else{printf("erreur, msgdata.filename == NULL\n");}
 	
 	int finish = 0; //file finish, pas communication 0 pas fini, 1 fini
-	FILE *f = fopen("sortie", "w");
+	FILE *f = fopen("sortie", "w"); //creation du fichier dans lequel client va ecrire
 	if(!f){
     fprintf(stderr,"can't open\n");
     return 1;
 	}
-	struct send* snd = (struct send*) malloc(sizeof(struct send));
+	
+	struct send* snd; //= (struct send*) malloc(sizeof(struct send)); //creation struct send (long type, char[] texte)
 	int count = 0;
 	while(finish == 0)
 	{
-		//snd = (struct send*) malloc(sizeof(struct send));
+		snd = (struct send*) malloc(sizeof(struct send));
 		count++;
 		printf("debut while\n");
-		msgrcv(msgId,  snd,sizeof(snd),getpid(),0666);
+		msgrcv(msgId,  snd,sizeof(snd),getpid(),0666); //on met le texte dans la struct send
 		printf("sizeof(snd) : %li\n", sizeof(snd));
 		printf("sizeof(receiver) : %li\n", sizeof(struct receive));
 		if (f == NULL){
@@ -69,7 +70,7 @@ int main( int argc, const char* argv[] )
 		printf("count = %d\n",count);
 		
 	}
-	free(snd);
+	//free(snd);
 	fclose(f);
 
 	
