@@ -47,8 +47,11 @@ int main( int argc, const char* argv[] )
 	int finish = 0; //file finish, pas communication 0 pas fini, 1 fini
 	FILE *f = fopen("sortie", "w");
 	
+	int count = 0;
 	while(finish == 0)
 	{
+		count++;
+		printf("debut while");
 		msgrcv(msgId,  snd,sizeof(snd),getpid(),0666);
 		printf("sizeof(snd) : %li", sizeof(snd));
 		printf("sizeof(receiver) : %li", sizeof(struct receive));
@@ -68,6 +71,8 @@ int main( int argc, const char* argv[] )
 			}
 			printf("%c",(char)charac);
 		}
+		printf("fin for");
+		printf(count);
 	}
 	
 	fclose(f);
