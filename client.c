@@ -44,28 +44,34 @@ int main( int argc, const char* argv[] )
 	}
 	
 	struct send* snd = (struct send*) malloc(sizeof(struct send));
-
-	msgrcv(msgId,  snd,sizeof(snd),getpid(),0666);
-	printf("sizeof(snd) : %li", sizeof(snd));
-	printf("sizeof(receiver) : %li", sizeof(struct receive));
-	for (int i=0; i<1000; i++){
-	printf("%c", snd->texte[i]);
-	}
-	
-	/*
+	int finish = 0; //file finish, pas communication 0 pas fini, 1 fini
 	FILE *f = fopen("sortie", "w");
-	if (f == NULL){
-		printf(" f NULL\n");
-		return 1;}
-	else {printf(" F non NULL\n");}
-	int charac;
-	for (int i=0; i<1000; i++){
-	charac=  fputc( snd->texte[i], f );
-	printf("%c",(char)charac);
+	
+	while(finish == 0)
+	{
+		msgrcv(msgId,  snd,sizeof(snd),getpid(),0666);
+		printf("sizeof(snd) : %li", sizeof(snd));
+		printf("sizeof(receiver) : %li", sizeof(struct receive));
+		
+		
+		if (f == NULL){
+			printf(" f NULL\n");
+			return 1;}
+		else {printf(" F non NULL\n");}
+		int charac;
+		for (int i=0; i<1000; i++){
+			charac=  fputc( snd->texte[i], f );
+			if(texte[i]== EOF)
+			{
+				finish == 1;
+			}
+			printf("%c",(char)charac);
+		}
 	}
 	
 	fclose(f);
-	*/
+
+	
 	
 }
 
